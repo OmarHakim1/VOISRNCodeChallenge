@@ -32,15 +32,30 @@ const AppNavigation = () => {
           name={routes.news}
           component={NewsStackNavigator}
           options={{
-            // tabBarIcon:({focused, tintColor}) => {
-            //   // let icon = focused == true ? require('images/icons8-news-30.png') : require('images/icons8-news-30.png')
-            //   return <Image source={icon} style={styles.tabIcon} />
-            // },
+            tabBarIcon: ({focused}) => {
+              let icon =
+                focused == true
+                  ? require('../images/icons8-news-30_active.png')
+                  : require('../images/icons8-news-30_inactive.png');
+              return <Image source={icon} style={styles.tabIcon} />;
+            },
 
             headerShown: false,
           }}
         />
-        <BottomTab.Screen name={routes.settings} component={Settings} />
+        <BottomTab.Screen
+          name={routes.settings}
+          component={Settings}
+          options={{
+            tabBarIcon: ({focused}) => {
+              let icon =
+                focused == true
+                  ? require('../images/icons8-settings-50_active.png')
+                  : require('../images/icons8-settings-50_inactive.png');
+              return <Image source={icon} style={styles.tabIcon} />;
+            },
+          }}
+        />
       </BottomTab.Navigator>
     </NavigationContainer>
   );
