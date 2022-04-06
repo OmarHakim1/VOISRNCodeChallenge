@@ -1,4 +1,4 @@
-import {Text, TextInput, View} from 'react-native';
+import {TextInput} from 'react-native';
 import React from 'react';
 import styles from './SearchFieldStyles';
 import SearchFieldProps from './SearchFieldProps';

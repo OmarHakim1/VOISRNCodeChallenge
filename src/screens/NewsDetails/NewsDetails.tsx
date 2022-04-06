@@ -2,7 +2,6 @@ import {Image, ScrollView, Text, View} from 'react-native';
 import React from 'react';
 import styles from './NewsDetailsStyles';
 import {NativeStackHeaderProps} from '@react-navigation/native-stack';
-import {Article} from '../../models/Article';
 
 function NewsDetails({route, navigation}: NativeStackHeaderProps) {
   const newsObject: any = route.params;
