@@ -1,13 +1,17 @@
 import {TextInput} from 'react-native';
-import React from 'react';
-import styles from './SearchFieldStyles';
+import React, {useContext} from 'react';
 import SearchFieldProps from './SearchFieldProps';
+import {ThemeContext} from '../../utils/themes';
+import {styles} from './SearchFieldStyles';
 
 function SearchField(props: SearchFieldProps) {
+  const {theme} = useContext(ThemeContext);
+
   return (
     <TextInput
-      style={styles.textField}
+      style={styles(theme).textField}
       placeholder="Search for articles"
+      placeholderTextColor={theme.text}
       onChangeText={text => props.onTextChange(text)}
     />
   );

@@ -1,18 +1,20 @@
 import {FlatList, View} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {routes} from '../../navigation/routes';
 import {useGetNews} from '../../hooks/useGetNews';
 import NewsListItem from '../../components/NewsListItem/NewsListItem';
-import styles from './NewsListStyles';
 import SearchField from '../../components/SearchField/SearchField';
 import {useNavigation} from '@react-navigation/native';
 import {Article} from '../../models/Article';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {ThemeContext} from '../../utils/themes';
+import {styles} from './NewsListStyles';
 
 function NewsList() {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const [data, loading, error, refetch] = useGetNews();
   const [keyword, setKeyword] = useState('');
+  const {theme} = useContext(ThemeContext);
 
   useEffect(() => {}, []);
 
@@ -29,7 +31,7 @@ function NewsList() {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles(theme).container}>
       <SearchField onTextChange={setKeyword} />
       <FlatList
         data={filteredData()}

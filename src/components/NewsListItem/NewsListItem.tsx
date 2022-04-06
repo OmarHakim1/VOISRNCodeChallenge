@@ -1,14 +1,16 @@
 import {Image, Pressable, Text, View} from 'react-native';
-import React from 'react';
+import React, {useContext} from 'react';
 import NewsListItemProps from './NewsListItemProps';
-import styles from './NewsListItemStyles';
+import {ThemeContext} from '../../utils/themes';
+import {styles} from './NewsListItemStyles';
 
 function NewsListItem({imageURL, headline, onPress}: NewsListItemProps) {
+  const {theme} = useContext(ThemeContext);
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={{uri: imageURL}} />
-      <Pressable style={styles.pressable} onPress={onPress}>
-        <Text style={styles.headline}>{headline}</Text>
+    <View style={styles(theme).container}>
+      <Image style={styles(theme).image} source={{uri: imageURL}} />
+      <Pressable style={styles(theme).pressable} onPress={onPress}>
+        <Text style={styles(theme).headline}>{headline}</Text>
       </Pressable>
     </View>
   );

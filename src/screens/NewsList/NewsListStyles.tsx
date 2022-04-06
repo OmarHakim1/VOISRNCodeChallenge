@@ -1,10 +1,12 @@
 import {StyleSheet} from 'react-native';
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  flatList: {
-    flex: 1,
-  },
-});
+export const styles = (props: any) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: props.background,
+    },
+    flatList: {
+      flex: 1,
+    },
+  });

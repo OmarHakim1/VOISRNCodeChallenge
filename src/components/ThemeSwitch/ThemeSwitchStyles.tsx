@@ -3,14 +3,11 @@ import {StyleSheet} from 'react-native';
 export const styles = (props: any) =>
   StyleSheet.create({
     container: {
-      padding: 10,
-      borderColor: props.text,
-      borderWidth: 1,
-      flexDirection: 'row',
-      margin: 10,
       alignItems: 'center',
-      borderRadius: 10,
+      justifyContent: 'center',
       backgroundColor: props.background,
+      flexDirection: 'row',
+      padding: 20,
     },
     image: {
       height: 100,
@@ -23,7 +20,10 @@ export const styles = (props: any) =>
       fontWeight: 'bold',
       color: props.text,
     },
-    pressable: {
-      width: '50%',
+    text: {
+      color: props.text,
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginLeft: 10,
     },
   });
