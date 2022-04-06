@@ -4,13 +4,16 @@ import SearchFieldProps from './SearchFieldProps';
 import {ThemeContext} from '../../utils/themes';
 import {styles} from './SearchFieldStyles';
 
+import {useTranslation} from 'react-i18next';
+
 function SearchField(props: SearchFieldProps) {
   const {theme} = useContext(ThemeContext);
+  const {t} = useTranslation();
 
   return (
     <TextInput
       style={styles(theme).textField}
-      placeholder="Search for articles"
+      placeholder={t('searchPlaceholder')}
       placeholderTextColor={theme.text}
       onChangeText={text => props.onTextChange(text)}
     />

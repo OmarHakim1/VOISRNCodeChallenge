@@ -5,10 +5,12 @@ import {routes} from './routes';
 import NewsStackNavigator from './NewsStackNavigator';
 import Settings from '../screens/Settings/Settings';
 import {ThemeContext, themes} from '../utils/themes';
+import {useTranslation} from 'react-i18next';
 
 const BottomTab = createBottomTabNavigator();
 
 const BottomTabs = () => {
+  const {t} = useTranslation();
   const {theme} = useContext(ThemeContext);
   return (
     <BottomTab.Navigator
@@ -30,6 +32,7 @@ const BottomTabs = () => {
         name={routes.news}
         component={NewsStackNavigator}
         options={{
+          title: t('news'),
           tabBarIcon: ({focused}) => {
             let icon =
               focused == true
@@ -47,6 +50,7 @@ const BottomTabs = () => {
         name={routes.settings}
         component={Settings}
         options={{
+          title: t('settings'),
           tabBarIcon: ({focused}) => {
             let icon =
               focused == true
