@@ -15,6 +15,7 @@ export function useGetNews() {
       setData(oldArray => [...oldArray, ...response.articles]);
       console.log('TEST_DATA', data);
     } catch (err) {
+      console.log(err);
       setData([]);
       setError(err);
     } finally {
