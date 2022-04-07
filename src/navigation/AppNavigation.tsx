@@ -4,6 +4,18 @@ import {StatusBar} from 'react-native';
 import {ThemeContext, themes} from '../utils/themes';
 import BottomTabs from './BottomTabs';
 
+const config = {
+  screens: {
+    NewsStack: {
+      screens: {
+        NewsList: 'newslist',
+        NewsDetails: 'newsdetails',
+      },
+    },
+    Settings: 'settings',
+  },
+};
+
 const AppNavigation = () => {
   const [theme, setTheme] = useState(themes.light);
 
@@ -22,7 +34,8 @@ const AppNavigation = () => {
             : 'dark-content'
         }
       />
-      <NavigationContainer>
+      <NavigationContainer
+        linking={{prefixes: ['rncodechallenge://app'], config}}>
         <BottomTabs />
       </NavigationContainer>
     </ThemeContext.Provider>
